@@ -1,12 +1,17 @@
 FROM node:18.16.0-alpine3.17
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package.json ./
-COPY yarn.lock ./
+COPY package.json .
+COPY yarn*.lock .
 
 RUN yarn install --frozen-lockfile
 
-COPY ./src usr/src/app
+COPY ./tailwind.config.js .
+COPY ./postcss.config.js .
+COPY ./next.config.js .
 
-CMD ["yarn", "start"]
+COPY ./public /public
+COPY ./src /src
+
+CMD ["yarn", "dev"]

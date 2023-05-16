@@ -1,24 +1,18 @@
-version: '3'
+version: "3"
 
 services:
-  next-js:
+  atproto-website:
     build:
       context: .
       dockerfile: Dockerfile
-    image: next-js
-    container_name: next-js
+    image: atproto-website
+    container_name: atproto-website
     ports:
       - "3000:3000"
     volumes:
-      - ./src:/usr/src/app
-      - /usr/src/app/node_modules
-      - /usr/src/app/.next
+      - ./src:/app/src
+      - ./public:/app/public
+      - /app/node_modules
+      - /app/.next
     environment:
       - NODE_ENV=development
-      - PORT=3000
-    networks:
-      - next-js-network
-
-networks:
-  next-js-network:
-    external: true
