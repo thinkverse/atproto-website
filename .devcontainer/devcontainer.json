@@ -1,0 +1,22 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+{
+	"name": "Node.js",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:0-18-bullseye",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	}
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [3000],
+
+	"portsAttributes": {
+		"3000": {
+			"label": "Atproto Web",
+			"onAutoForward": "openPreview"
+		}
+	}
+}
