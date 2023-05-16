@@ -20,10 +20,6 @@ COPY ./next.config.js .
 COPY ./public /public
 COPY ./src /src
 
-RUN chown -R node:node .
-
-USER node
-
 EXPOSE 3000
 
 CMD ["yarn", "dev"]
